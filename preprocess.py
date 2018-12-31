@@ -99,9 +99,10 @@ class FileStream(object):
         # 将路径列表压入队列.
         queue_rdd = ssc.queueStream(seg_path_list, oneAtATime=True)
 
-        # RDD 的转换过程如下.
+        # RDD 的转换过程如下, 要综合考察各种可能的情况.
+        # 例如 3.png, 12.jpg, 7f.jpg, 9-over.png.
         pair_rdd = queue_rdd.map(
-            lambda path: (re.split("[-.]", os.path.split(path)[-1])[0], path)
+            lambda path: (re.findall("\d+", os.path.split(path)[-1])[0], path)
         )
         group_rdd = pair_rdd.groupByKey()
 
