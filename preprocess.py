@@ -1,4 +1,12 @@
 # coding=utf-8
+"""
+@Author:        LiYangMing
+@StartTime:     18/12/29
+@Filename:      preprocess
+@Software:      Pycharm
+@LastModify:    18/12/31
+"""
+
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 
@@ -6,7 +14,6 @@ import re
 import os
 import tqdm
 import time
-import numpy as np
 from PIL import Image
 
 
@@ -151,4 +158,3 @@ if __name__ == '__main__':
         ["data/pokemon/pokemon-tcg-images"],
         "data/test", n_bucket=16
     )
-
