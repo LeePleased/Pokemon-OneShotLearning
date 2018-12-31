@@ -106,8 +106,8 @@ if __name__ == '__main__':
     test_dict = collect_data("data/test_img")
 
     # 产生张量数据用于训练.
-    train_img, train_lbl = generate_data(train_dict, 700, 1200)
-    test_img, test_lbl = generate_data(test_dict, 249, 400)
+    train_img, train_lbl = generate_data(train_dict, 500, 700)
+    test_img, test_lbl = generate_data(test_dict, 149, 223)
 
     # 保存数据, dump 到文件路径.
     dump_to_file(train_img, "data/train_image.pkl")
